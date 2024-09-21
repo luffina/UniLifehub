@@ -1,6 +1,6 @@
 # UniLifeHub
 
-**UniLifeHub** is a comprehensive web application designed to enhance the student experience by providing a centralized platform for managing various academic and social activities. Whether you need help organizing your study schedule, finding study buddies, or staying updated on university events, UniLifeHub is here to assist.
+UniLifeHub is a comprehensive web application designed to enhance the student experience by providing a centralized platform for managing various academic and social activities. Whether you need help organizing your study schedule, finding study buddies, or staying updated on university events, UniLifeHub is here to assist.
 
 ## Features
 
@@ -8,12 +8,15 @@
 - **Study Planner**: A dedicated tool for planning your studies effectively, complete with scheduling features and reminders to keep you on track.
 - **Study Buddies**: Find and connect with like-minded study buddies based on courses, interests, or study habits to foster collaboration and improve learning.
 - **University Events Forum**: Discover and post events happening at your university, from academic workshops to social gatherings and student organization meetings.
+- **Open Forum**: A common platform to post and discuss what's happening on campus. Share your thoughts, ask questions, and stay updated on current events at your university.
 - **Important Links**: A convenient page with all the essential university-related links, such as learning portals, library resources, course registrations, and more for easy access.
+- **FitU**: Tailored workout plans for students to help you stay fit and active, with quick and efficient exercises that fit into a busy schedule.
+- **Campus Resources**: A gateway to essential resources such as the **Career Centre**, **Global Opportunities**, **Job Shop**, **Student Life**, and **GradConnection**. Each section navigates to the corresponding university websites for further exploration.
 
 ## Tech Stack
 
-- **Frontend**: Built with **React** for a fast and responsive user experience. React allows dynamic interactions and real-time updates on the platform.
-- **Backend**: Developed using **Node.js** for server-side logic, APIs, and managing user sessions, ensuring a robust, scalable backend.
+- **Frontend**: Built with React for a fast and responsive user experience, allowing dynamic interactions and real-time updates.
+- **Backend**: Developed using Node.js for server-side logic, APIs, and managing user sessions, ensuring a robust, scalable backend.
 - **Flask**: A lightweight Python-based framework used to run the recommendation model (`Model.py`) for predicting student buddy similarity.
 - **Database**: (Optional) Although this version of the app currently stores data in-memory, future updates will integrate a persistent database (e.g., MongoDB or PostgreSQL).
 
@@ -26,91 +29,102 @@
 - **Python**: Required for running Flask and the recommendation model.
 - **Axios/Fetch**: To make API requests between the frontend and backend.
 - **CORS**: Ensures smooth communication between the frontend and backend across different origins.
-  
+
 ## Getting Started
 
 ### Prerequisites
 
 Before you begin, ensure that you have the following software installed on your machine:
 
-- **Node.js** (v12 or higher) and **npm** (comes with Node.js)
-- **React** (included in project dependencies)
-- **Git** (optional, for cloning the repository)
-- **Python** (for using a Flask backend and additional scripts)
-- **Flask** (install via `pip`)
-  
+- Node.js (v12 or higher) and npm (comes with Node.js)
+- React (included in project dependencies)
+- Git (optional, for cloning the repository)
+- Python (for using a Flask backend and additional scripts)
+- Flask (install via pip)
+
 ### Installation
 
 Follow these steps to get the project up and running locally:
 
-1. **Clone the repository**:
+1. **Clone the repository:**
+
    ```bash
    git clone https://github.com/your-username/unilifehub.git
    cd unilifehub
    ```
 
-2. **Install the dependencies** for both the frontend and backend:
+2. **Install the dependencies for both the frontend and backend:**
 
-   For the **Backend**:
-   ```bash
-   cd backend
-   npm install
-   ```
+   - **For the Backend:**
 
-   For the **Frontend**:
-   ```bash
-   cd frontend
-   npm install
-   ```
-
-3. **Install Python dependencies**:
-   - Install the required Flask libraries for running the `Model.py` file:
      ```bash
-     pip install flask flask-cors
+     cd backend
+     npm install
      ```
 
-4. **Set up environment variables**:
-   - Create a `.env` file in the `backend` directory to store sensitive data such as your session secret key.
-   - Example `.env` file:
+   - **For the Frontend:**
+
+     ```bash
+     cd frontend
+     npm install
      ```
-     SECRET_KEY=your-secret-key
-     ```
+
+3. **Install Python dependencies:**
+
+   Install the required Flask libraries for running the `Model.py` file:
+
+   ```bash
+   pip install flask flask-cors
+   ```
+
+4. **Set up environment variables:**
+
+   Create a `.env` file in the backend directory to store sensitive data such as your session secret key.
+
+   Example `.env` file:
+
+   ```makefile
+   SECRET_KEY=your-secret-key
+   ```
 
 ### Running the Application
 
-1. **Run the Flask Backend (Model.py)**:
-   - Navigate to the directory where `Model.py` is located and start the Flask server:
-     ```bash
-     cd backend
-     python Model.py
-     ```
+1. **Run the Flask Backend (`Model.py`):**
+
+   Navigate to the directory where `Model.py` is located and start the Flask server:
+
+   ```bash
+   cd backend
+   python Model.py
+   ```
 
    Flask will be running at `http://localhost:5000`, providing the API for recommendations.
 
-2. **Start the Backend (Node.js)**:
-   - After the Flask server is running, start the Node.js backend:
-     ```bash
-     cd backend
-     node server.js
-     ```
-   The backend will be running on `http://localhost:3000`.
+2. **Start the Backend (Node.js):**
 
-3. **Start the Frontend**:
-   - In a new terminal, start the React frontend:
-     ```bash
-     cd frontend
-     npm start
-     ```
-   The frontend will be available at `http://localhost:3001`.
+   After the Flask server is running, start the Node.js backend:
 
-4. **Access the Application**: 
-   - Open your browser and go to `http://localhost:3001` to access the UniLifeHub platform.
+   ```bash
+   cd backend
+   node server.js
+   ```
 
-### How to Use the Study Buddy Feature
+   The backend will be running on `http://localhost:5000`.
 
-- Go to the "Study Buddy" section.
-- Click the "Find Buddy" button to connect with other students who have similar study interests and habits.
-- The app will recommend study buddies based on courses, skills, and study preferences.
+3. **Start the Frontend:**
+
+   In a new terminal, start the React frontend:
+
+   ```bash
+   cd frontend
+   npm start
+   ```
+
+   The frontend will be available at `http://localhost:3000`.
+
+4. **Access the Application:**
+
+   Open your browser and go to `http://localhost:3000` to access the UniLifeHub platform.
 
 ### Developmental Solutions: B4
 
@@ -120,15 +134,11 @@ During the development of the **Study Buddy** feature, we encountered difficulti
 
 To address the challenge of finding similar study buddies, we designed a Python-based recommendation model. The model compares various attributes, such as course enrollments, learning styles, and subjects, to identify users with the most similar profiles.
 
-To further optimize the recommendation process, we implemented **cosine similarity** for calculating the similarity between students. After computing the cosine similarity between the new student and every other student, the recommendations are sorted to get the top N most similar students. Sorting a list of size `n` has a time complexity of **O(n log n)**, ensuring efficient ranking of the closest matches.
+To optimize the process, we implemented a caching mechanism to store the results of recommendations for each user. This cache reduces redundant API calls and speeds up the user experience, ensuring that repeated requests for the same user result in instant responses, rather than recalculating the similarity each time. As the project progresses and real data becomes available, the synthetic data can be easily replaced without significant changes to the modeling approach, making the system scalable and adaptable.
 
-Additionally, we implemented a caching mechanism to store the results of recommendations for each user. This cache reduces redundant API calls and speeds up the user experience, ensuring that repeated requests for the same user result in instant responses rather than recalculating the similarity each time. As the project progresses and real data becomes available, the synthetic data can be easily replaced without significant changes to the modeling approach, making the system scalable and adaptable.
+**API Call Complexity**: Initially, the API call for finding similar study buddies has a time complexity of **O(n)**, where `n` is the number of user profiles being compared. However, by using caching, subsequent requests are reduced to **O(1)**, as the system retrieves precomputed recommendations without recalculating. This optimization minimizes the number of API calls and significantly enhances performance, particularly as the number of users increases.
 
-**API Call Complexity**: Initially, the API call for finding similar study buddies has a time complexity of **O(n)** for comparing student profiles, followed by **O(n log n)** for sorting the top N similar students. However, by using caching, subsequent requests are reduced to **O(1)**, as the system retrieves precomputed recommendations without recalculating. This optimization significantly enhances performance as the number of users increases.
-
-This solution ensures that both memory usage and runtime remain efficient, balancing complexity while ensuring future expandability for more advanced features and datasets.
-
----
+The solution ensures that both memory usage and runtime remain efficient, balancing complexity while ensuring future expandability for more advanced features and datasets.
 
 ### Example 2: Absence of Database for User Profile Storage
 
@@ -141,5 +151,5 @@ For future expansions, the system is designed to easily integrate with a databas
 ### Additional Notes
 
 - **CORS Issues**: If you run into CORS issues when connecting the frontend and backend, make sure the backend has the necessary CORS configurations in place.
-- **Database Setup**: As the project grows, consider implementing a database to persistently manage data, such as student profiles and events.
+- **Database Setup**: As the project grows, we will consider implementing a database to persistently manage data, such as student profiles and events.
 
