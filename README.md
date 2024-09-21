@@ -63,17 +63,17 @@ Follow these steps to get the project up and running locally:
    cd backend
    node server.js
    ```
-   The backend should be running on `http://localhost:3000`.
+   The backend should be running on `http://localhost:5000`.
 
 5. **Start the frontend**:
    ```bash
    cd frontend
    npm start
    ```
-   The frontend should now be running on `http://localhost:3001`.
+   The frontend should now be running on `http://localhost:3000`.
 
 6. **Access the application**: 
-   - Open your browser and go to `http://localhost:3001` to access the UniLife platform.
+   - Open your browser and go to `http://localhost:3000` to access the UniLife platform.
 
 ### How to Use the Study Buddy Feature
 
