@@ -71,7 +71,7 @@ const StyledForm = styled.form`
 
   button {
     width: 100%;
-    background-color: #3b82f6;
+    background-color: #1a237e;
     color: white;
     padding: 0.75rem 1rem;
     border-radius: 0.375rem;
@@ -185,13 +185,6 @@ const ProfileCreationForm = () => {
   const navigate = useNavigate(); // For redirecting to the profile page after submit
 
   useEffect(() => {
-    const savedData = localStorage.getItem('profileCreationFormData');
-    if (savedData) {
-      setFormData(JSON.parse(savedData));
-    }
-  }, []);
-
-  useEffect(() => {
     if (formData.course === 'Bachelor\'s') {
       setFormData(prev => ({ ...prev, subjectsEnrolled: [] }));
     } else if (formData.course === 'Master\'s') {
@@ -224,7 +217,6 @@ const ProfileCreationForm = () => {
       [name]: selectedOption
     };
     setFormData(updatedFormData);
-    localStorage.setItem('profileCreationFormData', JSON.stringify(updatedFormData));
   };
 
   const handleSubmit = async (e) => {
