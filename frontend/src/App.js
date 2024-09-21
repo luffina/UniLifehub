@@ -77,7 +77,7 @@ function App() {
                   <NavLink to="/study-planner">Study Planner</NavLink>
                   <NavLink to="/campus-resources">Campus Resources</NavLink>
                   <NavLink to="/study-buddy">Study Buddy</NavLink>
-                  <NavLink to="/campus-eats">Campus Eats</NavLink>
+                  {/* <NavLink to="/campus-eats">Campus Eats</NavLink> */}
                   <NavLink to="/fit-u">FitU</NavLink>
                   <NavLink to="/open-forum">Open Forum</NavLink>
                   <NavLink to="/profile">Profile</NavLink>
