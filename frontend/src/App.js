@@ -13,7 +13,6 @@ import Signup from './components/Signup';
 import ProfileCreation from './components/ProfileCreation';
 import Profile from './components/Profile';
 import Footer from './components/Footer';
-import StarfieldBackground from './components/StarfieldBackground';
 
 
 const AppContainer = styled.div`
@@ -55,7 +54,6 @@ const ContentContainer = styled.div`
 function App() {
   return (
     <Router>
-            <StarfieldBackground />
 
       <AppContainer>
         <Routes>
