@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import styled from 'styled-components';
+import logo from '../assets/logo.png'; // Adjust the path to your image location
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  flex-direction: column; /* Adjust for vertical alignment */
+`;
+
+const Logo = styled.img`
+  width: 350px; /* Set the desired width */
+  margin-bottom: 20px; /* Add some space below the logo */
 `;
 
 const Form = styled.form`
@@ -66,6 +73,7 @@ function Login() {
 
   return (
     <Container>
+      <Logo src={logo} alt="App Logo" /> {/* Add the logo here */}
       <Form onSubmit={handleSubmit}>
         <h2>Login</h2>
         <Input 
