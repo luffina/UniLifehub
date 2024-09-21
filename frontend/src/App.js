@@ -89,7 +89,7 @@ function App() {
                     <Route path="/campus-eats" element={<CampusEats />} />
                     <Route path="/fit-u" element={<FitU />} />
                     <Route path="/open-forum" element={<OpenForum />} />
-                    <Route path="/profile" element={<ProfileCreation />} />
+                    <Route path="/profile" element={<Profile />} />
                   </Routes>
                 </ContentContainer>
               </>
